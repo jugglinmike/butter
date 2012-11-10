@@ -4,6 +4,7 @@
 @scrollbaroffset: 20px;
 @hpadding: 5%;
 @titleheight: 10%;
+@titleheighthorizontal: 30%;
 
 .box-sizing( @property ) {
   -webkit-box-sizing: @property;
@@ -23,6 +24,39 @@
   background-clip: padding-box;
   border: 1px solid #DDD;
   .box-sizing( border-box );
+
+  &.tweets-horizontal {
+    width: 100%;
+    height: 35%;
+
+    .popcorn-twitter-title {
+      height: @titleheighthorizontal;
+    }
+    .popcorn-twitter-tweets {
+      overflow-y: hidden;
+      overflow-x: scroll;
+      height: 100% - @titleheighthorizontal;
+    }
+    ul {
+      white-space: nowrap;
+    }
+    ul > li {
+      display: inline-block;
+      border-right: 1px solid #EFEFEF;
+      border-bottom: none;
+      padding: 5px 10px;
+    }
+    .popcorn-twitter-tweet-user {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .popcorn-twitter-tweet-text {
+      display: inline-block;
+      vertical-align: top;
+      max-width: 300px;
+      white-space: normal;
+    }
+  }
 }
 .popcorn-twitter-title {
   display: block;

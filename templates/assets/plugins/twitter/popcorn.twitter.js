@@ -73,6 +73,14 @@
           "default": "feed",
           optional: true
         },
+        orientation: {
+          elem: "select",
+          options: [ "Vertical", "Horizontal" ],
+          values: [ "tweets-vertical", "tweets-horizontal" ],
+          label: "Orientation",
+          "default": "tweets-vertical",
+          optional: true
+        },
         left: {
           hidden: true,
           elem: "input",
@@ -129,6 +137,11 @@
       // Set layout class for container
       if ( options.layout ) {
         options._container.classList.add( options.layout );
+      }
+
+      if ( options.orientation ) {
+        console.log(options.orientation);
+        options._container.classList.add( options.orientation );
       }
 
       // Set transitions for container
@@ -203,6 +216,10 @@
               }, TRANSITION_TIMEOUT );
             }, TWEETS_TIMER );
           }
+        }
+
+        if ( options.orientation ) {
+          options._container.classList.add( options.orientation );
         }
 
         outerTweetsContainer.classList.add( "popcorn-twitter-tweets" );
